@@ -1,4 +1,3 @@
-/* Global Styles */
 :root {
   --primary-color: #712d75;
   --secondary-color: #f4bbd3;
@@ -12,8 +11,8 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0.001px;
+  padding: 0.001px;
   box-sizing: border-box;
 }
 
@@ -23,9 +22,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: sans-serif;
 }
 
-/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -67,7 +66,6 @@ body {
   padding: 0.125rem 0.375rem;
 }
 
-/* Shop Items */
 .shop {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -101,7 +99,7 @@ img {
 }
 
 .details {
-  width: 50%;
+  width: 100%;
   padding: 0.625rem;
   display: flex;
   flex-flow: column wrap;
@@ -109,8 +107,6 @@ img {
 }
 
 .price-quantity {
-  /* width: 100%;
-  max-width: fit-content; */
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -122,24 +118,14 @@ img {
   font-size: 1rem;
 }
 
-.bi {
-  cursor: pointer;
+.count {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 5px;
 }
 
-.bi-dash-lg {
-  color: red;
-}
-
-.bi-plus-lg {
-  color: green;
-}
-
-.text-center {
-  text-align: center;
-  margin-bottom: 1.25rem;
-}
-
-/* Buttons */
 button, .HomeBtn, .checkout, .removeAll {
   background-color: var(--primary-color);
   color: var(--background-color);
@@ -157,34 +143,13 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
 
 .checkout {
   background-color: green;
+  border-radius: 4px;
 }
 
 .removeAll {
   background-color: red;
-}
-
-.bi-x-lg {
-  align-self: flex-start;
-  margin-bottom: 9rem;
-  color: #4d4c4c;
-  align-self: flex-end;
-}
-
-/* .bi-x-lg:hover {
-  content: 'delete';
-  font-size: x-small;
-  margin-top: 10px;
-  color: #712d75;
-} */
-
-.bi-x-lg:hover {
-  padding: 0px;
-  background-size: fit-content;
-  border: solid 1px black;
-  background-color: red;
-  color: whitesmoke;
-  border-radius: 7px;
-  /* align-self: auto; */
+  border-radius: 4px;
+  margin-left: 4px;
 }
 
 .place-order-box {
@@ -193,6 +158,7 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
 
 .place-order {
   display: inline-block;
+  width: 100%;
   padding: 0.625rem 1.25rem;
   font-size: var(--font-size-large);
   font-weight: bold;
@@ -217,21 +183,9 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
   transform: translateY(0);
 }
 
-/* Cart Items */
-.shopping-cart {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  gap: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 5rem;
-  flex-flow: row wrap;
-}
-
 .cart-container{
   display: grid;
-  padding-top: 6rem;
+  padding-top: 3rem;
   padding-bottom: 6rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -253,31 +207,23 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
 .cart-image {
   width: 50%;
 }
-
 .title-price-x {
-  display: flex;
   width: fit-content;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-between;
+  margin-bottom: 4px;
 }
 
-.title-price {
-  display: flex;
-  align-items: center;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  word-break: break-all;
-}
-
-.cart-item-price {
+.cart-item-price, .title-price-x {
   background-color: var(--primary-color);
   color: whitesmoke;
   border-radius: 4px;
   padding: 0.19rem 0.25rem;
+  word-break: break-all;
 }
 
-/* WhatsApp Button */
+.cart-item-price {
+  align-items: center;
+}
+
 .send-whatsapp {
   background-color: #25D366;
   color: white;
@@ -295,7 +241,6 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
   transform: translateY(-3px);
 }
 
-/* Modal Styles */
 .modal {
   position: fixed;
   top: 0;
@@ -311,7 +256,6 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
 .modal-content {
   background: white;
   padding: 1.25rem;
-  /* height: ; */
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -330,8 +274,6 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
   color: white;
   border: none;
   border-radius: 9px;
-  /* width: 1.875rem; */
-  /* height: 1.875rem; */
   cursor: pointer;
 }
 
@@ -339,7 +281,6 @@ button:hover, .HomeBtn:hover, .checkout:hover, .removeAll:hover {
   margin-top: 20px;
 }
 
-/* Footer Styles */
 footer {
   position: fixed;
   bottom: 0;
@@ -371,13 +312,14 @@ footer {
   margin-bottom: 20px;
 }
 
-.total{
-  text-align: center;
-  font-size: 1.5rem;
+a {
+  text-decoration: none;
 }
 
-.cart-summary button {
-  margin-right: 10px;
-  padding: 10px;
-  font-size: 1rem;
+a:hover {
+  color: #11602e;
+}
+
+a:active {
+  color: red;
 }
