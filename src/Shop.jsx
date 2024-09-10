@@ -46,13 +46,13 @@ const Shop = ({ searchQuery, basket, setBasket }) => {
               <h3>{name}</h3>
               <p>{desc}</p>
               <h4>Price: #{price}</h4>
-              <div>
-                <button onClick={() => handleDecrement(id)}>-</button>
+              <div className='count'>
+                <button className='.bi-plus-lg' onClick={() => handleDecrement(id)}>-</button>
                 <span>{quantity}</span>
                 <button onClick={() => handleIncrement(id)}>+</button>
               </div>
               <Link to="/cart">
-                <button className="add-to-cart">Add to Cart</button>
+                <button className="place-order">Place you order</button>
               </Link>
             </div>
           </div>

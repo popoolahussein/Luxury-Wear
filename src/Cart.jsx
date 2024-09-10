@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { shopItemsData } from './Data.js'; // Importing shop items data
+import { shopItemsData } from './Data.js';
 
 const Cart = ({ searchQuery, basket, setBasket }) => {
   const [totalAmount, setTotalAmount] = useState(0);
@@ -50,7 +50,7 @@ const Cart = ({ searchQuery, basket, setBasket }) => {
 
     const message = `Hello! I'd like to place the following order:\n\n${items}\n*Total Price:* #${totalAmount}\n\nThank you!`;
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = "+2347035258447";  // Your WhatsApp number
+    const phoneNumber = "+2347035258447";
 
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
@@ -60,28 +60,28 @@ const Cart = ({ searchQuery, basket, setBasket }) => {
   };
 
   const handleCheckout = () => {
-    setShowWhatsAppModal(true); // Open the WhatsApp modal
+    setShowWhatsAppModal(true);
   };
 
   const clearCart = () => {
-    setShowClearCartModal(true); // Open the clear cart confirmation modal
+    setShowClearCartModal(true);
   };
 
   const confirmClearCart = () => {
-    setBasket([]); // Clear the cart
-    setTotalAmount(0); // Reset total amount
-    localStorage.setItem('data', JSON.stringify([])); // Clear localStorage
-    setShowClearCartModal(false); // Close the confirmation modal
+    setBasket([]);
+    setTotalAmount(0);
+    localStorage.setItem('data', JSON.stringify([]));
+    setShowClearCartModal(false);
   };
 
   const cancelClearCart = () => {
-    setShowClearCartModal(false); // Close the confirmation modal without clearing
+    setShowClearCartModal(false);
   };
 
   return (
     <div className="cart-container">
       <div className="cart-summary">
-        <h3 className='total'>Total: #{totalAmount}</h3>
+        <h3 className='cart-item-price'>Total: #{totalAmount}</h3>
         {filteredBasket.length > 0 && (
           <div>
             <button className='checkout' onClick={handleCheckout}>Checkout</button>
@@ -96,9 +96,9 @@ const Cart = ({ searchQuery, basket, setBasket }) => {
             <div key={id} className="cart-item">
               <img src={shopItem.img} alt={shopItem.name} width="100" />
               <div>
-                <h4>{shopItem.name}</h4>
+                <h4 className='title-price-x'>{shopItem.name}</h4>
                 <p>Price: #{shopItem.price}</p>
-                <div>
+                <div className='count'>
                   <button onClick={() => decrementItem(id)}>-</button>
                   <span>{item}</span>
                   <button onClick={() => incrementItem(id)}>+</button>
@@ -127,8 +127,10 @@ const Cart = ({ searchQuery, basket, setBasket }) => {
           <div className="modal-content">
             <button className="close-modal" onClick={() => setShowClearCartModal(false)}>X</button>
             <p>Are you sure you want to remove all items from the cart?</p>
+            <div>
             <button onClick={confirmClearCart}>Yes</button>
             <button onClick={cancelClearCart}>No</button>
+            </div>
           </div>
         </div>
       )}
