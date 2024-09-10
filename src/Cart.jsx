@@ -128,8 +128,8 @@ const Cart = ({ searchQuery, basket, setBasket }) => {
             <button className="close-modal" onClick={() => setShowClearCartModal(false)}>X</button>
             <p>Are you sure you want to remove all items from the cart?</p>
             <div>
-            <button onClick={confirmClearCart}>Yes</button>
-            <button onClick={cancelClearCart}>No</button>
+            <button onClick={confirmClearCart} style={{marginRight: "5px"}}>Yes</button>
+            <button onClick={cancelClearCart} style={{marginLeft: "5px"}}>No</button>
             </div>
           </div>
         </div>
